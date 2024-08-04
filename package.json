@@ -1,0 +1,44 @@
+{
+  "name": "nodejs-express-sequelize-postgresql",
+  "version": "1.0.0",
+  "description": "Node.js Rest Apis with Express, Sequelize & PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "rest",
+    "api",
+    "postgresql"
+  ],
+  "author": "bezkoder",
+  "license": "ISC",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.0.12",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "langchain": "^0.0.72",
+    "mongoose": "^7.0.4",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0",
+    "pdf-parse": "^1.1.1",
+    "pinecone": "^0.1.0",
+    "stripe": "^12.4.0",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
