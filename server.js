@@ -1,38 +1,36 @@
-const express = require('express');
+const express = require("express");
 const cors = require("cors");
-// const mongoose = require('mongoose');
+require("dotenv").config();
 
 const app = express();
 
 var corsOptions = {
-  origin:'*', //or whatever port your frontend is using
-  // credentials:true,            
+  origin: "*", //or whatever port your frontend is using
+  // credentials:true,
   // optionSuccessStatus:200
 };
 
+// app.use(cors(["*"]));
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json());  /* bodyParser.json() is deprecated */
+app.use(express.json()); /* bodyParser.json() is deprecated */
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
+app.use(
+  express.urlencoded({ extended: true })
+); /* bodyParser.urlencoded() is deprecated */
 
-const db = require("./app/config/db.config");
+const connectDB = require("./app/config/db.config");
 
+connectDB();
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
-  res.render('pages/auth');
+  res.render("pages/auth");
 });
 
-require("./app/routes/chatbotRoutes")(app);
-require("./app/routes/authUserRoutes")(app);
-require("./app/routes/fileRoutes")(app);
-require("./app/routes/pricingRoutes")(app);
-require("./app/routes/settingRoutes")(app);
-require("./app/routes/userRoutes")(app);
-require("./app/routes/authAdminRoutes")(app);
+app.use("/api", require("./app/routes"));
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

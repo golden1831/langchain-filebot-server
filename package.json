@@ -1,26 +1,32 @@
 {
-  "name": "nodejs-express-sequelize-postgresql",
+  "name": "francine-server",
   "version": "1.0.0",
-  "description": "Node.js Rest Apis with Express, Sequelize & PostgreSQL",
+  "description": "Node.js Rest Apis with Express, Mongoose & MongoDB",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "dev": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "nodejs",
     "express",
-    "sequelize",
+    "mongoose",
     "rest",
     "api",
-    "postgresql"
+    "mongodb"
   ],
   "author": "bezkoder",
   "license": "ISC",
   "dependencies": {
-    "@pinecone-database/pinecone": "^0.0.12",
+    "@langchain/anthropic": "^0.1.16",
+    "@langchain/core": "^0.1.58",
+    "@langchain/google-genai": "^0.0.11",
+    "@langchain/openai": "^0.0.28",
+    "@langchain/pinecone": "^0.0.4",
+    "@pinecone-database/pinecone": "^2.2.0",
     "bcryptjs": "^2.4.3",
+    "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
@@ -28,7 +34,8 @@
     "express-session": "^1.17.3",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
-    "langchain": "^0.0.72",
+    "langchain": "^0.1.33",
+    "lodash": "^4.17.21",
     "mongoose": "^7.0.4",
     "multer": "^1.4.5-lts.1",
     "passport": "^0.6.0",
@@ -36,7 +43,8 @@
     "pdf-parse": "^1.1.1",
     "pinecone": "^0.1.0",
     "stripe": "^12.4.0",
-    "validator": "^13.9.0"
+    "validator": "^13.9.0",
+    "zod": "^3.23.6"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

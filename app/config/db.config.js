@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const env = require("dotenv").config();
 
-const MONGO_USERNAME = 'sammy';
-const MONGO_PASSWORD = 'password';
-const MONGO_HOSTNAME = '0.0.0.0';
-const MONGO_PORT = '27017';
-const MONGO_DB = 'TestDB';
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
 
-const url = `mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}`;
-console.log(url, {
-  useNewUrlParser: true,
-  // useUnifiedTopology: true,
-});
-mongoose.connect(url)
-  .then(() => console.log('Database successfuly to connected'))
-  .catch(() => console.log('Database failed to connected'));
+    console.log("MongoDB Connected");
+  } catch (err) {
+    console.error(err.message);
+    // Exit process with failure
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;

@@ -8,15 +8,15 @@ const ChatHistory = new Schema({
   content: {
     type: String,
   },
-  // is_active: {
-  //   type: Boolean,
-  // },
+  dataflow: {
+    type: Object,
+  },
   created_at: {
     type: Date,
   },
 });
 
-const Chat = new Schema({
+const AdvancedChat = new Schema({
   name: { type: String },
   chat_log: [ChatHistory],
   prompt_id: {
@@ -30,4 +30,4 @@ const Chat = new Schema({
   },
 });
 
-module.exports = mongoose.model("chats", Chat);
+module.exports = mongoose.model("advanced_chats", AdvancedChat);
